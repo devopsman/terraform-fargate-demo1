@@ -1,4 +1,4 @@
-Deploy service with AWS Fargate using terraform
+# Deploy service with AWS Fargate using terraform
 
 ## Pre-requisites
 
