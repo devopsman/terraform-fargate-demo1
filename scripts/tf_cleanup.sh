@@ -1,1 +1,1 @@
-cd ../terraform/aws && terraform destroy
+cd terraform/aws && terraform destroy
