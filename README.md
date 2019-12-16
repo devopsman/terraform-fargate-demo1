@@ -13,8 +13,7 @@ To deploy whole solution to AWS, clone this repo and run script:
 
 ```./scripts/tf_deploy.sh```
 
-After deploy is finished, get output value of **alb_hostname** parameter
-Test service by visiting 2 URLs:
+After deploy is finished, get output value of **alb_hostname** parameter and test service by visiting 2 URLs:
 * http://<alb_hostname>:5000/service
 * http://<alb_hostname>:5000/\__\__healthcheck\__\__ 
 
