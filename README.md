@@ -1,53 +1,29 @@
-# symmetrical-spork
-
 Deploy service with AWS Fargate using terraform
 
-## Directory layout
+## Pre-requisites
 
-    .
-    ├── scripts                            # scripts to run terraform & tests
-    ├── terraform
-      - aws                                # Terraform AWS infrastructure
-    ├── tests                              # Infrastructure tests
-    ├── Makefile                           # Set of tasks to execute
-    └── README.md                          # Documentation
-
-## Proposed Infrastructure Architecture
-
-![design](design.jpg "Architecture")
-
-* AWS Fargate
-* AWS Application Load Balancer
-
-The application load balancer should have an `/service` endpoint and `/__healthcheck__` health check endpoint.
-
-If something is missing, feel free adding it to a solution.
-
-## Objectives
-
-The task objectives were as follows:
-
-* Create infrastructure-as-code as per proposed Architecture
-* `Makefile` has all the commands requred to run/test
-* Explain how to run in `README.md`
-
-Optional
-
-* Test Infrastructure (you can choose one or more test frameworks)
-	* [Terraform BDD Testing](https://github.com/eerkunt/terraform-compliance)
-	* [Terraform Unit Testing](https://github.com/bsnape/rspec-terraform)
-	* [Terraform Ultimate Testing](https://github.com/bsnape/rspec-terraform)
+You should have next things installed on your PC:
+* awscli-v2 + configured credentials for any AWS Account
+* terraform v0.12 or later
+* [terraform-compliance](https://terraform-compliance.com) - used to run BDD tests against Terraform code
 
 ## Deploy
 
-TODO: Document how to run
+To deploy whole solution to AWS, clone this repo and run script:
 
-## Test the whole setup
+./scripts/tf_deploy.sh
 
-TODO: Document how to test the setup
 
-## Note
+## Cleanup
 
-Not make pull requests. Fork/Clone the repo instead and work on it. Master branches only.
+To remove all Infrastructure(if was deployed in step #Deploy), run script:
 
-There is no need to deploy infrastructure to AWS. Just make sure it fully valid terraform infrastructure-as-code setup.
+./scripts/tf_cleanup.sh
+
+## Run tests
+
+To run BDD tests against provided Terraform code run commands:
+* terraform plan -out=plan.out
+* ./tests/compl/run_tests.sh
+
+Note: This step does not require that Terraform Infrastructure to be deployed on AWS, it runs against Terraform code only.
