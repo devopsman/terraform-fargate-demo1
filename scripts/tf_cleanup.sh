@@ -1,0 +1,1 @@
+cd ../terraform/aws && terraform destroy
