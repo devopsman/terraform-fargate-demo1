@@ -34,9 +34,10 @@ You should see output similar to:
 ```4 features (3 passed, 1 skipped)
 14 scenarios (12 passed, 2 skipped)
 41 steps (37 passed, 2 skipped)
-Run 1576506078 finished within a moment```
-
+Run 1576506078 finished within a moment
+```
 
 Notes: 
 * This step does not require that Terraform Infrastructure to be deployed on AWS, it runs against Terraform code only. 
 * Not whole code covered here, I added just a few tests for Demo
+
